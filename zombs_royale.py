@@ -6,7 +6,7 @@ def sorcererBattle(player,level):
     print(f"You are up against a level {level} boss. Good luck!")
     counter = 0
     while player.health > 0:
-        attack = input("Would you like to blast (10 energy), use fireball (25 energy), rest (gives 50 energy), or use invisibility (60 energy)? ")
+        attack = input("Would you like to blast (10 energy), use fireball (30 energy), rest (gives 50 energy), or use invisibility (60 energy)? ")
         if attack == 'blast':
             player.blast()
             print(f"That did {player.damage} damage!\n")
@@ -195,7 +195,7 @@ Beginning Sorcerer Stats:                            Beginning Warrior Stats:
 25% dodge rate                                       10% dodge rate
 Moves:                                               Moves:
 Blast -10 energy, 5-15dmg                            Jab -10 energy, 10-20dmg
-Fireball -25 energy, 40-50dmg, 50% chance of success Strike -25energy, 25-35dmg
+Fireball -30 energy, 50-60dmg, 50% chance of success Strike -25energy, 25-35dmg
 Invisibility -60 energy, invisible for 2 turns       Invincibility -50 energy, 75% damage reduction for 2 turns
 Rest -uses a turn but gives 50 energy                Rest -uses a turn but gives 50 energy""")
 time.sleep(5)               
