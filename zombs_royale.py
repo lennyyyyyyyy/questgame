@@ -9,40 +9,40 @@ def sorcererBattle(player,level):
         attack = input("Would you like to blast (10 energy), use fireball (25 energy), rest (gives 50 energy), or use invisibility (60 energy)? ")
         if attack == 'blast':
             player.blast()
-            print(f"That did {player.damage} damage!")
-            print(f"You now have {player.energy} energy left.")
+            print(f"That did {player.damage} damage!\n")
+            print(f"You now have {player.energy} energy left.\n")
             enemy.health -= player.damage
-            print(f"The boss has {enemy.health} HP left.")
+            print(f"The boss has {enemy.health} HP left.\n")
             player.damage = 0
         elif attack == 'fireball':
             player.fireball()
-            print(f"That did {player.damage} damage!")
-            print(f"You now have {player.energy} energy left.")
+            print(f"That did {player.damage} damage!\n")
+            print(f"You now have {player.energy} energy left.\n")
             enemy.health -= player.damage
-            print(f"The boss has {enemy.health} HP left.")
+            print(f"The boss has {enemy.health} HP left.\n")
             player.damage = 0
         elif attack == 'rest':
             player.rest()
             print("Ah! You're awake!")
-            print(f"You now have {player.energy} energy left.")
+            print(f"\nYou now have {player.energy} energy left.\n")
         elif attack == 'invisibility':
             player.invisibility()
-            print("You are now invisible for 2 turns.")
-            print(f"You have {player.energy} energy left.")
+            print("You are now invisible for 2 turns.\n")
+            print(f"You have {player.energy} energy left.\n")
             player.agility = 1
         if player.invisible:
             counter+= 1
         if counter == 2:
-            print("You are no longer invisible.")
+            print("You are no longer invisible.\n")
             player.invisible = False
             player.agility = player.speed
             counter = 0
         time.sleep(1)
         boss_attack = random.randint(0, 1)
         if enemy.health < 0:
-            print(f"Congratulations {player.name}! You defeated the boss!")
+            print(f"\nCongratulations {player.name}! You defeated the boss!\n")
             player.coins += enemy.coins
-            print(f"You earned {enemy.coins} coins!")
+            print(f"You earned {enemy.coins} coins!\n")
             break
         while True:
             if boss_attack:
@@ -50,13 +50,13 @@ def sorcererBattle(player,level):
                 if enemy.enough_energy:
                     if random.random() < player.agility:
                         time.sleep(1)
-                        print("But he misses!")
+                        print("But he misses!\n")
                     else:
                         time.sleep(1)
-                        print(f"That did {enemy.damage} damage!")
+                        print(f"That did {enemy.damage} damage!\n")
                         player.health -= enemy.damage
                         time.sleep(1)
-                        print(f"You have {player.health} HP left.")
+                        print(f"You have {player.health} HP left.\n")
                     enemy.damage = 0
                     enemy.enough_energy = None
                     break
@@ -68,13 +68,13 @@ def sorcererBattle(player,level):
                 if enemy.other_energy:
                     if random.random() < player.agility:
                         time.sleep(1)
-                        print("But he misses!")
+                        print("But he misses!\n")
                     else:
                         time.sleep(1)
-                        print(f"That did {enemy.damage} damage!")
+                        print(f"That did {enemy.damage} damage!\n")
                         player.health -= enemy.damage
                         time.sleep(1)
-                        print(f"You have {player.health} HP left.")
+                        print(f"You have {player.health} HP left.\n")
                     enemy.damage = 0
                     enemy.other_energy = None
                     break
@@ -83,39 +83,39 @@ def sorcererBattle(player,level):
                     boss_attack = 1
             if enemy.energy < 15:
                 enemy.rest()
-                print("The boss takes a rest.")
+                print("The boss takes a rest.\n")
                 break
     if player.health<= 0:
-        print("You have died. Game over.")
+        print("You have died. Game over.\n")
         win = 0
 def warriorBattle(player,level):
     enemy = Boss(level)
-    print(f"You are up against a level {level} boss. Good luck!")
+    print(f"You are up against a level {level} boss. Good luck!\n")
     counter = 0
     while player.health > 0:
         attack = input("Would you like to jab (10 energy), use strike (25 energy), rest (gives 50 energy), or use invincibility (50 energy)? ")
         if attack == 'jab':
             player.jab()
-            print(f"That did {player.damage} damage!")
-            print(f"You now have {player.energy} energy left.")
+            print(f"That did {player.damage} damage!\n")
+            print(f"You now have {player.energy} energy left.\n")
             enemy.health -= player.damage
-            print(f"The boss has {enemy.health} HP left.")
+            print(f"The boss has {enemy.health} HP left.\n")
             player.damage = 0
         elif attack == 'strike':
             player.strike()
-            print(f"That did {player.damage} damage!")
-            print(f"You now have {player.energy} energy left.")
+            print(f"That did {player.damage} damage!\n")
+            print(f"You now have {player.energy} energy left.\n")
             enemy.health -= player.damage
-            print(f"The boss has {enemy.health} HP left.")
+            print(f"The boss has {enemy.health} HP left.\n")
             player.damage = 0
         elif attack == 'rest':
             player.rest()
-            print("Ah! You're awake!")
-            print(f"You now have {player.energy} energy left.")
+            print("Ah! You're awake!\n")
+            print(f"You now have {player.energy} energy left.\n")
         elif attack == 'invincibility':
             player.invincibility()
-            print("You now have a 75% damage reduction for 2 turns.")
-            print(f"You have {player.energy} energy left")
+            print("You now have a 75% damage reduction for 2 turns.\n")
+            print(f"You have {player.energy} energy left\n")
         if player.invincible:
             counter+= 1
         if counter == 2:
@@ -124,9 +124,9 @@ def warriorBattle(player,level):
         time.sleep(1)
         boss_attack = random.randint(0, 1)
         if enemy.health < 0:
-            print(f"Congratulations {player.name}! You defeated the boss!")
+            print(f"\nCongratulations {player.name}! You defeated the boss!\n")
             player.coins += enemy.coins
-            print(f"You earned {enemy.coins} coins!")
+            print(f"You earned {enemy.coins} coins!\n")
             break
         while True:
             if boss_attack:
@@ -134,19 +134,19 @@ def warriorBattle(player,level):
                 if enemy.enough_energy:
                     if random.random() < player.agility:
                         time.sleep(1)
-                        print("But he misses!")
+                        print("But he misses!\n")
                     else:
                         time.sleep(1)
                         if player.invincible:
-                            print(f"That only did {enemy.damage * 0.25} damage!")
+                            print(f"That only did {enemy.damage * 0.25} damage!\n")
                             player.health -= (enemy.damage * 0.25)
                             time.sleep(1)
-                            print(f"You have {player.health} HP left.")
+                            print(f"You have {player.health} HP left.\n")
                         else:
-                            print(f"That did {enemy.damage} damage!")
+                            print(f"That did {enemy.damage} damage!\n")
                             player.health -= enemy.damage
                             time.sleep(1)
-                            print(f"You have {player.health} HP left.")
+                            print(f"You have {player.health} HP left.\n")
                     enemy.damage = 0
                     enemy.enough_energy = None
                     break
@@ -158,19 +158,19 @@ def warriorBattle(player,level):
                 if enemy.other_energy:
                     if random.random() < player.agility:
                         time.sleep(1)
-                        print("But he misses!")
+                        print("But he misses!\n")
                     else:
                         time.sleep(1)
                         if player.invincible:
-                            print(f"That only did {enemy.damage * 0.25} damage!")
+                            print(f"That only did {enemy.damage * 0.25} damage!\n")
                             player.health -= (enemy.damage * 0.25)
                             time.sleep(1)
-                            print(f"You have {player.health} HP left.")
+                            print(f"You have {player.health} HP left.\n")
                         else:
-                            print(f"That did {enemy.damage} damage!")
+                            print(f"That did {enemy.damage} damage!\n")
                             player.health -= enemy.damage
                             time.sleep(1)
-                            print(f"You have {player.health} HP left.")
+                            print(f"You have {player.health} HP left.\n")
                     enemy.damage = 0
                     enemy.other_energy = None
                     break
@@ -179,10 +179,10 @@ def warriorBattle(player,level):
                     boss_attack = 1
             if enemy.energy < 15:
                 enemy.rest()
-                print("The boss takes a rest.")
+                print("The boss takes a rest.\n")
                 break
     if player.health <= 0:
-        print("You have died. Game over.")
+        print("You have died. Game over.\n")
         win = 0
 print("Welcome to the game of the quest of awesomeness!")
 time.sleep(1)
@@ -198,14 +198,14 @@ Blast -10 energy, 5-15dmg                            Jab -10 energy, 10-20dmg
 Fireball -25 energy, 40-50dmg, 50% chance of success Strike -25energy, 25-35dmg
 Invisibility -60 energy, invisible for 2 turns       Invincibility -50 energy, 75% damage reduction for 2 turns
 Rest -uses a turn but gives 50 energy                Rest -uses a turn but gives 50 energy""")
-time.sleep(3)               
-choice = input("What is your name? ")
-char = input(f"What would you like to be {choice}? sorcerer or warrior? ")
+time.sleep(5)               
+choice = input("\nWhat is your name? ")
+char = input(f"\nWhat would you like to be {choice}? sorcerer or warrior? ")
 if char == 'sorcerer':                
     character = Sorcerer(choice)
 else:
     character = Warrior(choice)
-print("Every level, you will have to defeat a boss.")
+print("\nEvery level, you will have to defeat a boss.")
 time.sleep(1)                
 print("You will get coins for defeating bosses, and a shop will appear when you have enough money for an upgrade.")
 time.sleep(1)
@@ -227,7 +227,7 @@ while win:
     character.energy = character.mana
     enterCharge = min(healthCost, energyCost, damageCost)
     if character.coins >= enterCharge:
-        print("Welcome to the shop!")
+        print("Welcome to the shop!\n")
         while True:
             print(f"""     You have: {character.coins} coins
  -Upgrade Health - {healthCost} coins
