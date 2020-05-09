@@ -32,10 +32,10 @@ class Sorcerer(Character):
             print("Not enough energy. The enemy lunges.")
     def fireball(self):
         if self.magical:
-            if bool(random.randint(0, 1)) and self.energy >= 25:
+            if bool(random.randint(0, 1)) and self.energy >= 30:
                 print("Your fireball succeeded!")
-                self.damage = 4.5*self.strength + random.randint(-5, 5)
-                self.energy -= 25
+                self.damage = 5.5*self.strength + random.randint(-5, 5)
+                self.energy -= 30
             else:
                 print("Your fireball failed. You fall back.")
         else:
