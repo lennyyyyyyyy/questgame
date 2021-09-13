@@ -32,12 +32,15 @@ class Sorcerer(Character):
             print("Not enough energy. The enemy lunges.")
     def fireball(self):
         if self.magical:
-            if bool(random.randint(0, 1)) and self.energy >= 30:
-                print("Your fireball succeeded!")
-                self.damage = 5.5*self.strength + random.randint(-5, 5)
-                self.energy -= 30
+            if self.energy >= 30:
+                if bool(random.randint(0, 1)):
+                    print("Your fireball succeeded!")
+                    self.damage = 5.5*self.strength + random.randint(-5, 5)
+                    self.energy -= 30
+                else:
+                    print("Your fireball failed. You are vulnerable.")
             else:
-                print("Your fireball failed. You fall back.")
+                print("Not enough energy. The enemy sees and attacks.")
         else:
             print("You cannot make a fireball because you are not magical.")
     def invisibility(self):
@@ -46,7 +49,7 @@ class Sorcerer(Character):
             self.energy -= 60
             self.invisible = True
         else:
-            print("You couldn't cast the invisibility spell.")
+            print("You couldn't cast the invisibility spell. It leaves you defenseless.")
     def rest(self):
         time.sleep(5)
         self.energy+= 50
