@@ -3,7 +3,8 @@ import random
 from characters import Character, Sorcerer, Warrior, Boss
 def sorcererBattle(player,level):
     enemy = Boss(level)
-    print(f"You are up against a level {level} boss. Good luck!")
+    print(f"You are up against a level {level} boss. Good luck!\n")
+    print(f"You currently have {player.mana} energy.\n")
     counter = 0
     while player.health > 0:
         attack = input("Would you like to blast (10 energy), use fireball (30 energy), rest (gives 50 energy), or use invisibility (60 energy)? ")
@@ -91,6 +92,7 @@ def sorcererBattle(player,level):
 def warriorBattle(player,level):
     enemy = Boss(level)
     print(f"You are up against a level {level} boss. Good luck!\n")
+    print(f"You currently have {player.mana} energy.\n")
     counter = 0
     while player.health > 0:
         attack = input("Would you like to jab (10 energy), use strike (25 energy), rest (gives 50 energy), or use invincibility (50 energy)? ")
